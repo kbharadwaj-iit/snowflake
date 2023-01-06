@@ -35,9 +35,8 @@ try:
     fruityce_response = requests.get("https://www.fruityvice.com/api/fruit/"+fruit_req)
     streamlit.dataframe(pandas.json_normalize(fruityce_response.json()))
     #streamlit.write('The user entered::',fruit_req)
-except:
-  URLError as e:
-    streamlit.error()
+except URLError as e:
+  streamlit.error()
   
 
 streamlit.stop()
