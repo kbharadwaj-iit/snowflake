@@ -70,7 +70,8 @@ try:
       streamlit.error('Enter a fruit to add')
    else:
       streamlit.write('Thanks for adding',fruit_add)
-      my_cur.execute("insert into fruit_load_list values('"+fruit_add+"')")
+      with my_cnx.cursor() as my_cur:
+         my_cur.execute("insert into fruit_load_list values('"+fruit_add+"')")
    
 except URLError as e:
   streamlit.error()
